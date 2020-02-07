@@ -11,6 +11,7 @@
 
 
 <h4>Setup:</h4>
+
 	Board has 12 pockets
 	6 top pockets are Green player
 	6 bottom pockets are Red player
@@ -18,6 +19,7 @@
 	Each pocket starts with 4 stones
 
 <h4>Variables/States:</h4>
+
 	12 pocket:	Number value of contents
 	Location on board(Green side/Red side
 
@@ -29,6 +31,7 @@
 
 
 <h4>Game play:</h4>
+
 	First player clicks on any of the 12 pockets
 	All stones are removed from clicked pocket (stone-count stored in variable)
 
@@ -51,6 +54,7 @@
 	
 
 <h4>Game ends:</h4>
+
 	if all pockets on Green player's side are empty.
 		All stones in pockets on Red player's side move to Red's home-pocket
 	else if all pockets on Red player's side are empty.
@@ -58,10 +62,12 @@
 	Winner message displayed for player with most stones in Home-pocket or Tie
 
 <h4>Reset button:</h4>
+
 	Restarts game by emptying both home-pockets and placing 4 stones in each pocket.
 	
 
 <h4>Graphics:</h4>
+
 	Current player indicated by Green or Red triangle on each end of board.
 	Winner indicated by message on screen
 	Numbers shown for number of stones in each pocket/home-pocket
@@ -69,6 +75,7 @@
 
 
 <h4>Roadmap considerations:</h4>
+
 	Randomizing start player
 	Instruction popover
 	Lesson's: scenario based
