@@ -1,4 +1,4 @@
-# Mancala
+<h1>Mancala</h1>
 ###Project 1
 
 
