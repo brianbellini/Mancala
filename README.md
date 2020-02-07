@@ -5,7 +5,7 @@
 
 <h4>Wireframe:</h4>
 
-
+![Image Description](images/Mancala Wireframe.jpg)
 
 
 
