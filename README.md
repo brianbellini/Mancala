@@ -5,7 +5,7 @@
 
 <h4>Wireframe:</h4>
 
-![Image Description](images/Mancala Wireframe.jpg)
+![Image Description](./images/Mancala_Wireframe.jpg)
 
 
 
@@ -21,7 +21,7 @@
 <h4>Variables/States:</h4>
 
 	12 pocket:	Number value of contents
-	Location on board(Green side/Red side
+			Location on board(Green side/Red side
 
 	2 home-pocket: Number value of contents
 
