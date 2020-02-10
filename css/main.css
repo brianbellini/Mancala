@@ -13,6 +13,7 @@ body {
     grid-template-rows: 1fr
                         .2fr
                         4fr
+                        .2fr
                         1fr;
     align-items: center;
     justify-items: center;
@@ -24,6 +25,22 @@ body {
   text-align: center;
   grid-area: 2 / 3;
   font-size: 75px;
+}
+
+#result-banner {
+  text-align: center;
+  grid-area: 4 / 3;
+  font-size: 75px;
+}
+
+#reset-button {
+  text-align: center;
+  border-radius: 3px;
+  border: 2px solid black;
+  grid-area: 5 / 4;
+  font-size: 18px;
+  margin-right: 30px;
+  background-color: lightgrey;
 }
 
 #green-player {
@@ -63,12 +80,15 @@ body {
   display: grid;
   border: 2px solid black;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr
+                      1fr;
   background-image: url("/Users/brianbellini/code/projects/Mancala/images/Woodgrain.jpg");
   background-position: center;
   background-size: cover;
 
-
+  font-size: xx-large;
+  min-height: fit-content;
+  max-width: fit-content;
 }
 
 #green-home {
@@ -86,11 +106,6 @@ body {
   grid-row: 1 / span 2;
 
   /* background-color: darkred; */
-}
-
-.pit {
-    background-color: blueviolet;
-    
 }
 
 div {
