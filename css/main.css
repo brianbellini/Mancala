@@ -1,7 +1,7 @@
 *, *:before, *:after {
     box-sizing: border-box;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Oxygen', sans-serif;
   }
 
 body {
@@ -9,43 +9,83 @@ body {
     width: 100vw;
     /* Grid Setup */
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 1px 4fr 1px 1fr;
+    grid-template-rows: 1fr
+                        .2fr
+                        4fr
+                        1fr;
     align-items: center;
     justify-items: center;
     
 }
 
-  #board {
-    /* Size */
-    height: 20vh;
-    width: 90vw;
-    min-height: fit-content;
-    min-width: fit-content;
-    padding: 8px;
 
-    grid-area: 2 /2;
-    display: grid;
-    border: 2px solid black;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
+#title-banner {
+  text-align: center;
+  grid-area: 2 / 3;
+  font-size: 75px;
+}
 
-  #green-home {
-      /* Position */
-      grid-column-start: 1;
-      grid-row: 1 / span 2;
+#green-player {
+  grid-area: 3 / 2;
+  position: relative;
+  
+  height: 60px;
+  width: 60px;
 
-      background-color: darkgreen;
-      
-  }
+  background-image: url('/Users/brianbellini/code/projects/Mancala/images/Green_player.gif');
+  background-position: center;
+  background-size: cover;
+}
 
-  #red-home {
+#red-player {
+  grid-area: 3 / 4;
+  position: relative;
+
+  height: 60px;
+  width: 60px;
+
+  background-image: url('/Users/brianbellini/code/projects/Mancala/images/Red_player.gif');
+  background-position: center;
+  background-size: cover;
+}
+
+
+#board {
+  /* Size */
+  height: 20vh;
+  width: 90vw;
+  min-height: fit-content;
+  min-width: fit-content;
+  padding: 8px;
+
+  grid-area: 3 / 3;
+  display: grid;
+  border: 2px solid black;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  background-image: url("/Users/brianbellini/code/projects/Mancala/images/Woodgrain.jpg");
+  background-position: center;
+  background-size: cover;
+
+
+}
+
+#green-home {
     /* Position */
-    grid-column-start: 8;
+    grid-column-start: 1;
     grid-row: 1 / span 2;
 
-    background-color: darkred;
+    /* background-color: darkgreen; */
+    
+}
+
+#red-home {
+  /* Position */
+  grid-column-start: 8;
+  grid-row: 1 / span 2;
+
+  /* background-color: darkred; */
 }
 
 .pit {
@@ -58,3 +98,15 @@ div {
     margin: 8px;
 }
 
+p {
+  text-align: center;
+}
+
+.pit, .home-pit {
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+46,000000+100&0+46,0.65+100 */
+background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 46%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 46%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 46%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
