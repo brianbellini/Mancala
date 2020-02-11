@@ -54,6 +54,7 @@ body {
   background-image: url('/Users/brianbellini/code/projects/Mancala/images/Green_player.gif');
   background-position: center;
   background-size: cover;
+  opacity: 0;
 }
 
 #red-player {
@@ -66,6 +67,7 @@ body {
   background-image: url('/Users/brianbellini/code/projects/Mancala/images/Red_player.gif');
   background-position: center;
   background-size: cover;
+  opacity: 0;
 }
 
 

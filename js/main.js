@@ -1,6 +1,9 @@
 /*----- constants -----*/ 
 var PIT_START_STONES = 4;
 var HOME_START_STONES = 0;
+var G_HOME = 0;
+var R_HOME = 7;
+var TOTAL_PITS = 14;
 
 
 /*----- classes -----*/ 
@@ -12,67 +15,24 @@ class Board {
     }
 
     setupPits() {
-        var allBoardPits = []
-        for (let i = 1; i <= 6; i++) {
-            allBoardPits.push(new Pocket(this.player2, this.player2 + i));
+        var allBoardPits = [];
+
+        allBoardPits.push(new Pocket(this.player1, G_HOME, HOME_START_STONES));
+        for (let i = G_HOME + 1; i < R_HOME ; i++) {
+            allBoardPits.push(new Pocket(this.player1, i));
         }
-        allBoardPits.push(new Pocket(this.player2, this.player2 + 'Home', HOME_START_STONES));
-        for (let i = 1; i <= 6; i++) {
-            allBoardPits.push(new Pocket(this.player1, this.player1 + i));
+        allBoardPits.push(new Pocket(this.player2, R_HOME, HOME_START_STONES));
+        for (let i = R_HOME + 1; i < 14; i++) {
+            allBoardPits.push(new Pocket(this.player2, i));
         }
-        allBoardPits.push(new Pocket(this.player1, this.player1 + 'Home', HOME_START_STONES));
         return allBoardPits;
     }
-
-    pickUpStonesFrom(identity) {
-        switch (identity) {
-            case 'red-home':
-                return {num: 0, index: 6};
-                break;
-            case 'green-home':
-                return {num: 0, index: 13};
-                break;
-            default:
-                let stoneCount = 0;
-                for (let i = 0; i < this.boardPits.length; i++) {
-                    if (this.boardPits[i].ident === identity) {
-                        stoneCount = this.boardPits[i].stones;
-                        console.log('Inside pickUpStones ' + stoneCount)
-                        this.boardPits[i].stones = 0;
-                        return {num: stoneCount, index: i};
-                    }
-                }
-        }
-    }
-
-    move(pickedUpStones_from) {
-        
-        let stones = pickedUpStones_from.num;
-        let index = pickedUpStones_from.index;
-    
-        while (stones > 0) {
-            (index + 1 === 14) ? (index = 0) : (index ++);
-
-            if ((index === 13) && currentPlayer === 'R') {
-                (index + 1 === 14) ? (index = 0) : (index ++);
-            }
-            if ((index === 6) && currentPlayer === 'G') {
-                (index + 1 === 14) ? (index = 0) : (index ++);
-            }
-
-            console.log(index);
-            this.boardPits[index].stones += 1;
-            stones--;
-        }
-        console.log('Out of loop ' + index);
-    }
-   
 
 }
 
 class Pocket {
-    constructor(player, ident, stones = PIT_START_STONES) {
-        this.player = player;
+    constructor(owner, ident, stones = PIT_START_STONES) {
+        this.owner = owner;
         this.ident = ident;
         this.stones = stones;
         this.adjacentPit = this.findAdjacentPit();
@@ -80,11 +40,10 @@ class Pocket {
 
     findAdjacentPit() {
         let oppositePit = '';
-        if (this.ident.endsWith('e')) {
+        if ((this.ident === R_HOME) || (this.ident === G_HOME)) {
             oppositePit = null;
         } else {
-            this.player === 'R' ? oppositePit = 'G' : oppositePit = 'R';
-            oppositePit = `${oppositePit}${(7 - (this.ident[1]))}`  
+            oppositePit = TOTAL_PITS - this.ident; 
         }
         return oppositePit;
     }
@@ -92,26 +51,31 @@ class Pocket {
 
 /*----- app's state (variables) -----*/ 
 let theBoard = new Board();
-let winnerMessage = '';
+let message = '';
 var currentPlayer = 'G';
 var otherPlayer = 'R';
 
 /*----- cached element references -----*/ 
 let pitsOnBoard = document.getElementsByClassName('pit');
+let greenPlayerTag = document.getElementById('green-player');
+let redPlayerTag = document.getElementById('red-player');
+let domBoardPits = document.querySelectorAll('#board > div')
+console.log(domBoardPits)
 
 /*----- event listeners -----*/ 
 document.getElementById('board').addEventListener('click', play)
 
 /*----- functions -----*/
 
+
 function play() {
-    pitClicked = event.target.id;
-    pickedUpStones_from = theBoard.pickUpStonesFrom(pitClicked);
+    pitClicked = parseInt(event.target.id);
+    console.log(`Pit Clicked: ${pitClicked}`)
 
-    theBoard.move(pickedUpStones_from);
-    changePlayer();
-
+    move(pickUpStonesFrom(pitClicked));
     
+
+
 }
 
 function changePlayer() {
@@ -122,4 +86,84 @@ function changePlayer() {
         currentPlayer = 'G';
         otherPlayer = 'R';
     }
+    render();
 }
+
+function move(pickedUp) {
+        
+    let stonesInHand = pickedUp.stones;
+    let index = pickedUp.originPit;
+
+    while (stonesInHand > 0) {
+
+        let nextPit = (index - 1 < 0) ? (TOTAL_PITS - 1) : index - 1;
+        if ((currentPlayer === 'G') && (nextPit !== R_HOME)) {
+            theBoard.boardPits[nextPit].stones += 1;
+            stonesInHand--;
+        }
+        if ((currentPlayer === 'R') && (nextPit !== G_HOME)) {
+            theBoard.boardPits[nextPit].stones += 1;
+            stonesInHand--;
+        }
+
+        index = nextPit;
+    }
+    
+    console.log(`Ending Pit: ${index}`);
+
+    switch (index) {
+        case R_HOME:
+            currentPlayer === 'R' ?  message = `Red gets another turn!` : changePlayer();
+            break;
+        case G_HOME:
+            currentPlayer === 'G' ?  message = `Green gets another turn!` : changePlayer();
+            break;
+        default:
+            if (theBoard.boardPits[index].stones === 1) {
+                let stealFrom = theBoard.boardPits[index].adjacentPit;
+                stolenStones = theBoard.boardPits[stealFrom].stones;
+                theBoard.boardPits[stealFrom].stones = 0;
+
+                currentPlayer === 'R' ?  theBoard.boardPits[R_HOME].stones += stolenStones  : theBoard.boardPits[G_HOME].stones += stolenStones;
+            }
+            changePlayer();
+            break;
+    }
+    return index;
+}
+
+function render() {
+    if (currentPlayer === 'G') {
+        greenPlayerTag.style.opacity = 1;
+        redPlayerTag.style.opacity = 0;
+    }else {
+        greenPlayerTag.style.opacity = 0;
+        redPlayerTag.style.opacity = 1;
+
+    }
+
+}
+
+function pickUpStonesFrom(originPit) {
+    console.log(`Picked up ${theBoard.boardPits[originPit].stones} stones.`)
+    switch (originPit) {
+        case R_HOME:
+            message = `Can't play those!`
+            return {stones: 0,
+                originPit: R_HOME};
+        case G_HOME:
+            message = `Can't play those!`
+            return {stones: 0,
+                originPit: G_HOME};
+        default:
+            let inHand = theBoard.boardPits[originPit].stones;
+            theBoard.boardPits[originPit].stones = 0;
+            return {stones: inHand,
+                    originPit: originPit};
+                
+    }
+    
+}
+
+/*----- Main Program -----*/
+render();
