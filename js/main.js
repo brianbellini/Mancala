@@ -57,25 +57,27 @@ var otherPlayer = 'R';
 
 /*----- cached element references -----*/ 
 let pitsOnBoard = document.getElementsByClassName('pit');
+console.log(pitsOnBoard)
 let greenPlayerTag = document.getElementById('green-player');
 let redPlayerTag = document.getElementById('red-player');
-let domBoardPits = document.querySelectorAll('#board > div')
-console.log(domBoardPits)
-
+let domBoardPits = document.querySelectorAll('#board > div');
+let messageBoard = document.getElementById('result-banner');
 /*----- event listeners -----*/ 
 document.getElementById('board').addEventListener('click', play)
-
+document.getElementById('reset-button').addEventListener('click', reset)
 /*----- functions -----*/
 
 
 function play() {
+    message = '';
     pitClicked = parseInt(event.target.id);
+    if (!pitClicked) {
+        (event.target.id === 'green-home') ? pitClicked = G_HOME : pitClicked = R_HOME;
+    }
     console.log(`Pit Clicked: ${pitClicked}`)
-
     move(pickUpStonesFrom(pitClicked));
-    
 
-
+    stateCheck()
 }
 
 function changePlayer() {
@@ -108,7 +110,7 @@ function move(pickedUp) {
 
         index = nextPit;
     }
-    
+
     console.log(`Ending Pit: ${index}`);
 
     switch (index) {
@@ -129,9 +131,10 @@ function move(pickedUp) {
             changePlayer();
             break;
     }
+    render();
     return index;
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////
 function render() {
     if (currentPlayer === 'G') {
         greenPlayerTag.style.opacity = 1;
@@ -139,8 +142,21 @@ function render() {
     }else {
         greenPlayerTag.style.opacity = 0;
         redPlayerTag.style.opacity = 1;
+    }
+
+    console.log(pitsOnBoard)
+    for (let i = 0; i < R_HOME; i++) {
+        console.log(`Updating ${pitsOnBoard[i].id} to be ${theBoard.boardPits[i].stones}`)
+        pitsOnBoard[i].textContent = theBoard.boardPits[i].stones;
 
     }
+    for (let i = 13; i > R_HOME; i--) {
+        console.log(`Updating ${pitsOnBoard[i].id} to be ${theBoard.boardPits[i].stones}`)
+        pitsOnBoard[i].textContent = theBoard.boardPits[i].stones;
+
+    }
+
+    messageBoard.textContent = message;
 
 }
 
@@ -163,6 +179,35 @@ function pickUpStonesFrom(originPit) {
                 
     }
     
+}
+
+function stateCheck() {
+    let greenSide = 0;
+    let redSide = 0;
+
+    for (let i = 1; i < 6; i++) {
+        greenSide += theBoard.boardPits[i].stones
+        redSide += theBoard.boardPits[i + 7].stones
+    }
+    if (greenSide === 0) {
+        theBoard.boardPits[R_HOME].stones += redSide;
+        for (let i = R_HOME + 1; i < TOTAL_PITS; i++) {
+            theBoard.boardPits[i].stones = 0;
+        }
+        (theBoard.boardPits[G_HOME].stones > theBoard.boardPits[R_HOME].stones) ? message = `Green Wins!!!` : message = `Red Wins!!!`
+    } else if (redSide === 0) {
+        theBoard.boardPits[G_HOME].stones += greenSide;
+        for (let i = 1; i < R_HOME; i++) {
+            theBoard.boardPits[i].stones = 0;
+        }
+        (theBoard.boardPits[G_HOME].stones > theBoard.boardPits[R_HOME].stones) ? message = `Green Wins!!!` : message = `Red Wins!!!`
+    }
+    render()
+}
+
+function reset() {
+    theBoard = new Board;
+    currentPlayer = 'G';
 }
 
 /*----- Main Program -----*/

@@ -31,7 +31,8 @@ body {
 #result-banner {
   text-align: center;
   grid-area: 4 / 3;
-  font-size: 75px;
+  font-size: 50px;
+  height: 50px;
 }
 
 #reset-button {
@@ -73,10 +74,9 @@ body {
 
 #board {
   /* Size */
-  height: 20vh;
-  width: 90vw;
-  min-height: 145px;
-  min-width: fit-content;
+  height: 300px;
+  width: 700px;
+ 
   padding: 8px;
 
   grid-area: 3 / 3;
@@ -90,8 +90,7 @@ body {
   background-size: cover;
 
   font-size: xx-large;
-  min-height: fit-content;
-  max-width: fit-content;
+
 }
 
 #green-home {
@@ -119,11 +118,11 @@ div {
 
 
 
-.pit, .home-pit {
+
+.pit {
 /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+46,000000+100&0+46,0.65+100 */
 background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 46%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
 background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 46%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
 background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 46%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
 }
