@@ -223,7 +223,8 @@ function reset() {
     // Rest board data to base
     theBoard = new Board;
     currentPlayer = 'G';
-    render()
+    message = '';
+    render();
 }
 
 /*----- Main Program -----*/
