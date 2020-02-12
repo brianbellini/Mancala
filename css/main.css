@@ -51,7 +51,7 @@ body {
   position: relative;
   height: 60px;
   width: 60px;
-  background-image: url('./images/Green_player.gif');
+  background-image: url('images/Green_player.gif');
   background-position: center;
   background-size: cover;
   opacity: 0;
@@ -62,7 +62,7 @@ body {
   position: relative;
   height: 60px;
   width: 60px;
-  background-image: url('./images/Red_player.gif');
+  background-image: url('images/Red_player.gif');
   background-position: center;
   background-size: cover;
   opacity: 0;
@@ -78,7 +78,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr
                       1fr;
-  background-image: url("./images/Woodgrain.jpg");
+  background-image: url("images/Woodgrain.jpg");
   background-position: center;
   background-size: cover;
   font-size: xx-large;  
