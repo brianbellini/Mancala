@@ -76,9 +76,15 @@ function play() {
     // Error handling for home pit clicked
     if (!pitClicked) {
         (event.target.id === 'green-home') ? pitClicked = G_HOME : pitClicked = R_HOME;
+        message = `Can't play those!`;
+        render();
+    } else if (theBoard.boardPits[pitClicked].owner !== currentPlayer) {
+        message = `Can't play those!`;
+        render();
+    } else {
+        // Make move
+        move(pickUpStonesFrom(pitClicked));
     }
-    // Make move
-    move(pickUpStonesFrom(pitClicked));
     // Check game status
     stateCheck();
 }
