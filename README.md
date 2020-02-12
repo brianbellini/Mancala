@@ -1,10 +1,6 @@
 <h1>Mancala</h1>
 <h3>Project 1</h3>
 
-
-
-<h4>Wireframe:</h4>
-
 ![Image Description](./images/Screen_Shot.png)
 
 
@@ -21,7 +17,8 @@
 
 <h4>Game Background:</h4>
 
-	This is a basic version of the ancient game of Mancala.  This variant is known as "Two-rank Mancala" or "Kalah".
+	This is a basic version of the ancient game of Mancala.
+	This variant is known as "Two-rank Mancala" or "Kalah".
 
 
 
@@ -32,7 +29,8 @@
 
 
 	Basics:
-	Game starts with Green player (Indicated by green triangle on left), once turn ends, player changes to Red (Indicated by red triangle on right).
+	Game starts with Green player (Indicated by green triangle on left).
+	Once turn ends, player changes to Red (Indicated by red triangle on right).
 
 	Green owns the top row of pockets, Red owns the bottom row of pockets.
 
@@ -47,11 +45,13 @@
 
 	Moving counter clockwise one stone is placed in each of the pockets.
 
-	If you pass your own home pocket you get to keep that stone.  If you pass your oponents pocket you get to skip placing a stone there.
+	If you pass your own home pocket you get to keep that stone.
+	If you pass your oponents pocket you get to skip placing a stone there.
 
 	If the last stone you drop is in your own home pocket, you get another turn.
 
-	If the last stone you drop is in an empty pocket on your own side, you get to take all the stones in the pocket directly opposite.
+	If the last stone you drop is in an empty pocket on your own side:
+	You get to take all the stones in the pocket directly opposite.
 
 	The game is over when all the pockets on one side are empty.
 
