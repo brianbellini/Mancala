@@ -8,7 +8,6 @@ body {
   height: 100vh;
   width: 100vw;
   min-height: 700px;
-  /* Grid Setup */
   display: grid;
   grid-template-columns: 1fr 1px min-content 1px 1fr;
   grid-template-rows: 1fr
@@ -107,5 +106,5 @@ div {
   background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 46%, rgba(0,0,0,0.65) 100%);
   background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 46%,rgba(0,0,0,0.65) 100%);
   background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 46%,rgba(0,0,0,0.65) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1);
 }
