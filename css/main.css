@@ -78,7 +78,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr
                       1fr;
-  background-image: url("images/Woodgrain.jpg");
+  background-image: url('images/Woodgrain.jpg');
   background-position: center;
   background-size: cover;
   font-size: xx-large;  

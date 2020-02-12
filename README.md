@@ -5,77 +5,65 @@
 
 <h4>Wireframe:</h4>
 
-![Image Description](./images/Mancala_Wireframe.jpg)
+![Image Description](./images/Screen_Shot.png)
 
 
 
 
-<h4>Setup:</h4>
+<h4>Technologies Used:</h4>
 
-	Board has 12 pockets
-	6 top pockets are Green player
-	6 bottom pockets are Red player
-	Board has 2 home-pockets (each end)
-	Each pocket starts with 4 stones
+	HTML
+	CSS
+	JavaScript
 
-<h4>Variables/States:</h4>
 
-	12 pocket:	Number value of contents
-			Location on board(Green side/Red side
 
-	2 home-pocket: Number value of contents
 
-	Current player: Green/Red
-	
-	Winner/Tied:	Message for end of game
+<h4>Game Background:</h4>
+
+	This is a basic version of the ancient game of Mancala.  This variant is known as "Two-rank Mancala" or "Kalah".
+
+
+
+
+<h4>Getting Started:</h4>
+
+	Link to play Game:
+
+
+	Basics:
+	Game starts with Green player (Indicated by green triangle on left), once turn ends, player changes to Red (Indicated by red triangle on right).
+
+	Green owns the top row of pockets, Red owns the bottom row of pockets.
+
+
 
 
 <h4>Game play:</h4>
 
-	First player clicks on any of the 12 pockets
-	All stones are removed from clicked pocket (stone-count stored in variable)
+	To win the game collect the highest number by the end of the game.
 
-	For every stone stored in stone-count
+	Click on a pocket to collect the stones from that pocket.
 
-	    Add 1 stone to next pocket on board (moving counter clockwise)
+	Moving counter clockwise one stone is placed in each of the pockets.
 
-		If this passes current player's home-pocket
-			1 stone is placed in home-pocket
-		Else if loop passes opponent's home-pocket
-			Skip/Do not add stone in opponent's home-pocket
+	If you pass your own home pocket you get to keep that stone.  If you pass your oponents pocket you get to skip placing a stone there.
 
-	If the last stone placed is in home-pocket
-		Player gets another turn
-	Else if the last stone is in empty pocket on player's side of board
-		Stone moves to player's home-pocket
-			Stones in pocket directly opposite move to player's home pocket
+	If the last stone you drop is in your own home pocket, you get another turn.
 
+	If the last stone you drop is in an empty pocket on your own side, you get to take all the stones in the pocket directly opposite.
 
+	The game is over when all the pockets on one side are empty.
+
+	The player that owns the other side gets to take all of the stones on their side.
+
+	THe winner has the most stones once the game is complete.
 	
 
-<h4>Game ends:</h4>
-
-	if all pockets on Green player's side are empty.
-		All stones in pockets on Red player's side move to Red's home-pocket
-	else if all pockets on Red player's side are empty.
-		All stones in pockets on Green player's side move to Green's home-pocket
-	Winner message displayed for player with most stones in Home-pocket or Tie
-
-<h4>Reset button:</h4>
-
-	Restarts game by emptying both home-pockets and placing 4 stones in each pocket.
-	
-
-<h4>Graphics:</h4>
-
-	Current player indicated by Green or Red triangle on each end of board.
-	Winner indicated by message on screen
-	Numbers shown for number of stones in each pocket/home-pocket
-	Reset button
 
 
 <h4>Roadmap considerations:</h4>
 
 	Randomizing start player
 	Instruction popover
-	Lesson's: scenario based
+	Scenario based lessons
