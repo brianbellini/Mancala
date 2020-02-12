@@ -26,7 +26,7 @@
 <h4>Getting Started:</h4>
 
 	Link to play Game:
-
+	https://brianbellini.github.io/Mancala/
 
 	Basics:
 	Game starts with Green player (Indicated by green triangle on left).
@@ -62,7 +62,7 @@
 
 
 
-<h4>Roadmap considerations:</h4>
+<h4>Next Steps:</h4>
 
 	Randomizing start player
 	Instruction popover

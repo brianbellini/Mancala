@@ -147,7 +147,6 @@ function move(pickedUp) {
     return index;
 }
 
-
 function render() {
     // Show player pointer
     if (currentPlayer === 'G') {
