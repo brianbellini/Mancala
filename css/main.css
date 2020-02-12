@@ -23,12 +23,15 @@ body {
   text-align: center;
   grid-area: 2 / 3;
   font-size: 75px;
+  background: -webkit-linear-gradient(rgb(97, 179, 255), rgb(14, 2, 126));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #result-banner {
   text-align: center;
   grid-area: 4 / 3;
-  font-size: 50px;
+  font-size: 30px;
   height: 50px;
 }
 
