@@ -37,8 +37,8 @@ body {
 
 #reset-button {
   text-align: center;
-  border-radius: 3px;
-  border: 2px solid black;
+  border-radius: 5px;
+  border: 1px solid black;
   grid-area: 5 / 4;
   font-size: 18px;
   margin-right: 30px;

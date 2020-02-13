@@ -31,7 +31,6 @@ class Board {
         this.player2 = 'R';
         this.boardPits = this.setupPits();
     }
-
     setupPits() {
         var allBoardPits = [];
         //Create Green home
@@ -49,7 +48,6 @@ class Board {
         return allBoardPits;
     }
 }
-
 
 /*----- app's state (variables) -----*/ 
 let theBoard = new Board();
