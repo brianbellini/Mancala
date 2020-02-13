@@ -114,19 +114,10 @@ div {
 
 #signature {
   vertical-align: bottom;
-  /* padding-left: 5px; */
   height: 30px;
   width: 70px;
-  /* background-color: violet; */
-  /* grid-area: 5 / 1; */
-  /* background-image: url('../images/signature.png'); */
-  /* background-position: center; */
-  /* background-size: center; */
-
-  
-    z-index: 0;
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-
+  z-index: 0;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
 }

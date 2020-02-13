@@ -193,7 +193,7 @@ function stateCheck() {
     let greenSide = 0;
     let redSide = 0;
     // Count stones on both sides
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 7; i++) {
         greenSide += theBoard.boardPits[i].stones;
         redSide += theBoard.boardPits[i + 7].stones;
     }
