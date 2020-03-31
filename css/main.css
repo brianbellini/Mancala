@@ -23,7 +23,7 @@ body {
   text-align: center;
   grid-area: 2 / 3;
   font-size: 75px;
-  background: -webkit-linear-gradient(rgb(97, 179, 255), rgb(14, 2, 126));
+  background: -webkit-linear-gradient(rgb(165, 97, 255), rgb(62, 2, 131));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -114,8 +114,7 @@ div {
 
 #signature {
   vertical-align: bottom;
-  height: 30px;
-  width: 70px;
+  font-size: 10px;
   z-index: 0;
   position: absolute;
   bottom: 0px;
